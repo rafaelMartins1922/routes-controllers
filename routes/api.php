@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user(); //retorna uma instância do usuário autenticado
 });
+
+Route::get('books',[BookController::class,'index']);
+
+Route::get('books/{id}',[BookController::class,'show']);
+
+Route::post('books',[BookController::class,'create']);
+
+Route::put('books/{id}',[BookController::class,'update']);
+
+Route::delete('books/{id}',[BookController::class,'destroy']);
